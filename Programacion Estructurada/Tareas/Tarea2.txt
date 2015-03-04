@@ -1,0 +1,36 @@
+Tamano del RFC = 10 caracteres.
+Composicion:
+	1. Primera letra del apellido paterno.
+	2. Primera vocal interna del apellido paterno.
+	3. Primera letra del apellido materno.
+	4. Primera letra del primer nombre.
+
+	5-6. Ano de nacimiento (ultimos dos digitos).
+	7-8. Mes de nacimiento (dos digitos).
+	9-10. Dia de nacimiento (dos digitos).
+
+Tamano del curp = 16 caracteres.
+Composicion:
+	1. Primera letra del apellido paterno.
+	2. Primera vocal interna del apellido paterno.
+	3. Primera letra del apellido materno.
+	4. Primera letra del primer nombre.
+
+	5-6. Ano de nacimiento (ultimos dos digitos).
+	7-8. Mes de nacimiento (dos digitos).
+	9-10. Dia de nacimiento (dos digitos).
+
+	11. Genero (H/M).
+
+	12-13. Entidad Federativa de nacimiento.
+
+	14. Primera consonante interna del primer apellido.
+	15. Primera consonante interna del segundo apellido.
+	16. Primera consonante interna del primer nombre.
+
+Requerimientos:
+	-Nombres.
+	-Apellidos (2).
+	-Fecha de nacimiento(ano/mes/dia).
+	-Genero.
+	-Entidad Federativa (abreviacion).
