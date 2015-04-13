@@ -1,2 +1,5 @@
-# Java stuff
+# Java classes
 *.class
+
+# Reportes
+*.pdf
