@@ -1,5 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
+
+/* Custom modules */
 #include "colors.h"
 #include "questions.h"
 #include "errors.h"
@@ -11,16 +13,30 @@
 #define TRUE 1
 typedef int bool;
 
-struct Theater {
+/**
+ * Theater.
+ * Modelo de la sala.
+ */
+typedef struct {
   int** seats;
   int columns;
   int rows;
-};
+} Theater;
 
-struct Theater createTheater(int columns, int rows);
-void showTheater(struct Theater theater);
-void deleteTheater(struct Theater theater);
-bool isSeatAvailable(struct Theater theater, struct Position pos);
-bool isValidSeat(struct Theater theater, struct Position pos);
-Error reserveSeat(struct Theater theater, struct Position pos);
-Error cancelSeat(struct Theater theater, struct Position pos);
+
+/*********************
+ **    FUNCIONES    **
+ *********************/
+
+/* Interfaz con Theater */
+Theater createTheater(int columns, int rows);
+void showTheater(Theater theater);
+void deleteTheater(Theater theater);
+
+/* Validaciones */
+bool isSeatAvailable(Theater theater, Position pos);
+bool isValidSeat(Theater theater, Position pos);
+
+/* Mutaciones */
+Error reserveSeat(Theater theater, Position pos);
+Error cancelSeat(Theater theater, Position pos);

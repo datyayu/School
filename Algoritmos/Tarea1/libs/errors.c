@@ -1,29 +1,33 @@
 #include "errors.h"
 
 
+/**
+ * Muestra un error pasado como argumento.
+ * @param error Error de tipo enum/Error a mostrar.
+ */
 void showError(Error error)
 {
   if (error == NO_ERROR) return;
 
   switch (error)
   {
-    case RESERVED_ERROR: // x
-      puts("\nThe seat was already reserved!\n");
+    case RESERVED_ERROR:
+      puts("\n¡El asiento ya está reservado!\n");
       break;
 
-    case AVAILABLE_ERROR: // x
-      puts("\nThe requested seat is already available");
+    case AVAILABLE_ERROR:
+      puts("\n!El asiento ya estaba disponible.");
       break;
 
-    case OPTION_ERROR: // x
-      puts("\nWrong! Please enter a correct input.");
+    case OPTION_ERROR:
+      puts("\nErro! Introduzca una opcion valida.");
       break;
 
     case OFFBOUNDS_ERROR:
-      puts("\nThe seat doesn't exist, please enter a correct one");
+      puts("\nEl asiento que pidió no existe :(. Intente de nuevo.");
       break;
 
     default:
-      puts("\nIM NOT SURE WTF HAPPENED BOY");
+      puts("\nESTO NO DEBERIA ESTAR PASANDO!!");
   }
 }
