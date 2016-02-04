@@ -1,5 +1,11 @@
 # Java classes
 *.class
 
+# C binaries
+**/*.out
+
 # Reportes
 *.pdf
+
+# System files
+.DS_Store
