@@ -1,4 +1,6 @@
 #include "errors.h"
+#include "colors.h"
+
 
 
 /**
@@ -12,22 +14,22 @@ void showError(Error error)
   switch (error)
   {
     case RESERVED_ERROR:
-      puts("\n¡El asiento ya está reservado!\n");
+      printf(KRED "\n¡El asiento ya está reservado!\n\n"  RESET);
       break;
 
     case AVAILABLE_ERROR:
-      puts("\n!El asiento ya estaba disponible.");
+      printf(KRED "\nEl asiento ya estaba disponible.\n" RESET);
       break;
 
     case OPTION_ERROR:
-      puts("\nErro! Introduzca una opcion valida.");
+      printf(KRED "\n¡Error! Introduzca una opcion valida.\n" RESET);
       break;
 
     case OFFBOUNDS_ERROR:
-      puts("\nEl asiento que pidió no existe :(. Intente de nuevo.");
+      printf(KRED "\nEl asiento que pidió no existe :(. Intente de nuevo.\n" RESET);
       break;
 
-    default:
-      puts("\nESTO NO DEBERIA ESTAR PASANDO!!");
+    default: /* Internal error :P */
+      printf(KRED "\nESTO NO DEBERIA ESTAR PASANDO!!\n" RESET);
   }
 }

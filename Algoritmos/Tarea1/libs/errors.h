@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <stdlib.h>
+
 /**
  * Enum Error.
  * Enum utilizado para desplegar los errores, cada valor
@@ -18,5 +21,5 @@
 /*********************
  **    FUNCIONES    **
  *********************/
- 
+
  void showError(Error error);
