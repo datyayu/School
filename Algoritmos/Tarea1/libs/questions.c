@@ -39,10 +39,11 @@ MenuOption showMenu()
   puts("\nBienenido al cine de ALGOS.");
   puts("1) Reservar asiento");
   puts("2) Cancelar asiento");
-  puts("3) Salir");
+  puts("3) Mostrar ganancias");
+  puts("4) Salir");
 
   /* Obtiene el input del usuario */
-  printf("Select an option: ");
+  printf("Seleccione una opcion: ");
   scanf("%d", &userAnswer);
 
   return userAnswer - 1; /* Off-by-one fix.*/

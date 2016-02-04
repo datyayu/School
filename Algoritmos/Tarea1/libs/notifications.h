@@ -9,12 +9,12 @@
  */
  typedef enum {
   NO_ERROR,
+  EARNINGS,
   RESERVED_ERROR,
   AVAILABLE_ERROR,
   OPTION_ERROR,
-  OFFBOUNDS_ERROR,
-  INTERNAL_ERROR
-} Error;
+  OFFBOUNDS_ERROR
+} Notification;
 
 
 
@@ -22,4 +22,4 @@
  **    FUNCIONES    **
  *********************/
 
- void showError(Error error);
+ void showError(Notification notification, int earnings);

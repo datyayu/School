@@ -4,7 +4,7 @@
 /* Custom modules */
 #include "colors.h"
 #include "questions.h"
-#include "errors.h"
+#include "notifications.h"
 
 /* Custom keywords */
 #define RESERVED 1
@@ -32,11 +32,12 @@ typedef struct {
 Theater createTheater(int columns, int rows);
 void showTheater(Theater theater);
 void deleteTheater(Theater theater);
+int getReservedPerRow(Theater theater, int rowNumber);
 
 /* Validaciones */
 bool isSeatAvailable(Theater theater, Position pos);
 bool isValidSeat(Theater theater, Position pos);
 
 /* Mutaciones */
-Error reserveSeat(Theater theater, Position pos);
-Error cancelSeat(Theater theater, Position pos);
+Notification reserveSeat(Theater theater, Position pos);
+Notification cancelSeat(Theater theater, Position pos);

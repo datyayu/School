@@ -9,21 +9,21 @@
  */
 Theater createTheater(int columns, int rows)
 {
-    int col, row;
-    Theater theater;
+  Theater theater;
+  int col, row;
 
-    /* Setup */
-    theater.seats  = (int**) malloc((columns*rows)*sizeof(int));
-    theater.columns = columns;
-    theater.rows    = rows;
+  /* Setup */
+  theater.seats  = (int**) malloc((columns*rows)*sizeof(int));
+  theater.columns = columns;
+  theater.rows    = rows;
 
-    /* Aloja cada columna */
-    for (col = 0; col < columns; col++) {
-      /* Aloja cada fila e inicializa en 0 (AVAILABLE) cada asiento */
-      theater.seats[col] = (int*) calloc(rows, sizeof(int));
-    }
+  /* Aloja cada columna */
+  for (col = 0; col < columns; col++) {
+    /* Aloja cada fila e inicializa en 0 (AVAILABLE) cada asiento */
+    theater.seats[col] = (int*) calloc(rows, sizeof(int));
+  }
 
-    return theater;
+  return theater;
 }
 
 
@@ -33,8 +33,6 @@ Theater createTheater(int columns, int rows)
  */
 void showTheater(Theater theater)
 {
-  if (theater.seats == NULL) return;
-
   int col, row;
 
   /* Muestra los letras de las columnas */
@@ -68,8 +66,6 @@ void showTheater(Theater theater)
  */
 void deleteTheater(Theater theater)
 {
-  if (theater.seats == NULL)  return;
-
   int cols;
 
   /* Limpia cada columna columna. */
@@ -79,6 +75,27 @@ void deleteTheater(Theater theater)
 
   free(theater.seats);
 }
+
+/**
+ * Checa cuantos asientos ya estan reservadas en una fila.
+ * @param theater Sala en la que revisar.
+ * @param rowNumber Numero de fila a revisar. Empieza en 1.
+ * @return Numero de asientos reservados en esa fila.
+ */
+int getReservedPerRow(Theater theater, int rowNumber)
+{
+  int seat, reservedSeats;
+
+  reservedSeats = 0;
+  for (seat = 0; seat < theater.columns ; seat++) {
+    if (theater.seats[seat][rowNumber - 1] == RESERVED) {
+      reservedSeats = reservedSeats + 1;
+    }
+  }
+
+  return reservedSeats;
+}
+
 
 
 /**
@@ -90,8 +107,6 @@ void deleteTheater(Theater theater)
  */
 bool isValidSeat(Theater theater, Position pos)
 {
-  if (theater.seats == NULL) return FALSE;
-
   if (
     pos.row >= theater.rows ||       /* Lugar inexistente */
     pos.row < 0 ||                   /* Valor negativo */
@@ -114,8 +129,6 @@ bool isValidSeat(Theater theater, Position pos)
  */
 bool isSeatAvailable(Theater theater, Position pos)
 {
-  if (theater.seats == NULL) return FALSE;
-
   if (theater.seats[pos.column][pos.row] == AVAILABLE) {
     return TRUE;
   } else {
@@ -131,10 +144,8 @@ bool isSeatAvailable(Theater theater, Position pos)
  * @return NO_ERROR si se reservo correctamente.
  *         RESERVED_ERROR si el lugar ya estaba reservado.
  */
-Error reserveSeat(Theater theater, Position pos)
+Notification reserveSeat(Theater theater, Position pos)
 {
-  if (theater.seats == NULL) return INTERNAL_ERROR;
-
   if (isSeatAvailable(theater, pos)) {
     theater.seats[pos.column][pos.row] = RESERVED;
     return NO_ERROR;
@@ -151,10 +162,8 @@ Error reserveSeat(Theater theater, Position pos)
  * @return NO_ERROR si se cancelo correctamente.
  *         AVAILABLE_ERROR si el lugar no estaba reservado.
  */
-Error cancelSeat(Theater theater, Position pos)
+Notification cancelSeat(Theater theater, Position pos)
 {
-  if (theater.seats == NULL) return INTERNAL_ERROR;
-
   if (isSeatAvailable(theater, pos) == FALSE) {
     theater.seats[pos.column][pos.row] = AVAILABLE;
     return NO_ERROR;

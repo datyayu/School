@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
+#include <ctype.h>
 
 /**
  * Enum MenuOption.
@@ -9,6 +9,7 @@
 typedef enum {
   RESERVE,
   CANCEL,
+  SHOW_EARNINGS,
   EXIT
 } MenuOption;
 
@@ -26,6 +27,6 @@ typedef struct {
 /*********************
  **    FUNCIONES    **
  *********************/
- 
+
 Position askPosition(int max_cols, int max_rows);
 MenuOption showMenu();
