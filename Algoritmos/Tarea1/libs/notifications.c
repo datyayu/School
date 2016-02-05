@@ -30,7 +30,7 @@ void showError(Notification notification, int earnings)
       break;
 
     case OFFBOUNDS_ERROR:
-      printf(KRED "\nEl asiento que pidió no existe :( Intente de nuevo.\n" RESET);
+      printf(KRED "\nEl asiento que pidio no existe :( Intente de nuevo.\n" RESET);
       break;
 
     default: /* Internal error :P */

@@ -1,3 +1,12 @@
+/**
+  * Practica 0. Arreglo bidimensionales.
+  * Descripcion: Simula una cine  y la venta de boletos
+  *              para los asientos.
+  * Author: Jesus Arturo Coronel Chavez.
+  * Fecha: 3 de febrero del 2015.
+  * Grupo: 551 (Miercoles).
+  */
+
 #include <stdio.h>
 #include "libs/theater.h"
 
@@ -17,7 +26,7 @@ int main()
  /*  Main loop */
   while(option != EXIT) {
     /* Muestra el estado de la aplicacion */
-    system("clear");
+    system("clear"); /* Cambiar por  "cls" para windows  */
     showTheater(theater);
     showError(notification, earnings);
     earnings = 0;
