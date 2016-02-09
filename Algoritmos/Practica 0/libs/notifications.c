@@ -7,7 +7,7 @@
  * Muestra un error pasado como argumento.
  * @param err a mostrar.
  */
-void showError(Notification notification, int earnings)
+void showNotifications(Notification notification, int earnings)
 {
   if (notification == NO_ERROR) return;
 

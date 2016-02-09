@@ -15,9 +15,10 @@ const int COLUMNS = 9;
 
 int getEarnings(Theater theater);
 
+
 int main()
 {
-  MenuOption option;
+  MenuOption option = NO_OPTION_SELECTED;
   Notification notification = NO_ERROR;
   Theater theater = createTheater(COLUMNS, ROWS);
   Position pos;
@@ -28,7 +29,7 @@ int main()
     /* Muestra el estado de la aplicacion */
     system("clear"); /* Cambiar por  "cls" para windows  */
     showTheater(theater);
-    showError(notification, earnings);
+    showNotifications(notification, earnings);
     earnings = 0;
 
     /* Muestra el menu y obten la respuseta del usuario */
@@ -43,6 +44,7 @@ int main()
         } else {
           notification = OFFBOUNDS_ERROR;
         }
+
         break;
 
       case CANCEL: /* Cancela un asiento */
@@ -53,9 +55,10 @@ int main()
         } else {
           notification = OFFBOUNDS_ERROR;
         }
+
         break;
 
-      case SHOW_EARNINGS:
+      case SHOW_EARNINGS: /* Muestra ganancias */
         notification = EARNINGS;
         earnings = getEarnings(theater);
         break;
@@ -77,8 +80,9 @@ int main()
 
 
 /**
- *
- *
+ * Calcula los ganancias totales de una sala.
+ * @param theater Sala a medir.
+ * @return La cantidad de ganancias actuales como un int.
  */
 int getEarnings(Theater theater)
 {

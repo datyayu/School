@@ -22,4 +22,4 @@
  **    FUNCIONES    **
  *********************/
 
- void showError(Notification notification, int earnings);
+ void showNotifications(Notification notification, int earnings);

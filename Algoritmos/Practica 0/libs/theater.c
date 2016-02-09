@@ -10,7 +10,7 @@
 Theater createTheater(int columns, int rows)
 {
   Theater theater;
-  int col, row;
+  int col;
 
   /* Setup */
   theater.seats  = (int**) malloc((columns*rows)*sizeof(int));

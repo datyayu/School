@@ -10,7 +10,8 @@ typedef enum {
   RESERVE,
   CANCEL,
   SHOW_EARNINGS,
-  EXIT
+  EXIT,
+  NO_OPTION_SELECTED
 } MenuOption;
 
 
